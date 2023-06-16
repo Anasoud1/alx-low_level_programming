@@ -14,7 +14,7 @@ int main(void)
 	int n = 0;
 	int m = 0;
 	int p = 0;
-	int q = 0;
+	int q = 1;
 
 	while (n <= 9)
 	{
@@ -36,7 +36,7 @@ int main(void)
 					q++;
 				}
 				p++;
-				q = 0;
+				q = 1;
 			}
 			m++;
 			q = m + 1;
@@ -45,7 +45,7 @@ int main(void)
 		n++;
 		m = 0;
 		p = 0;
-		q = 0;
+		q = 1;
 	}
 	putchar('\n');
 	return (0);
