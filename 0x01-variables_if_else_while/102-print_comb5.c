@@ -36,7 +36,7 @@ int main(void)
 					q++;
 				}
 				p++;
-				q = 1;
+				q = 0;
 			}
 			m++;
 			q = m + 1;
@@ -45,7 +45,7 @@ int main(void)
 		n++;
 		m = 0;
 		p = 0;
-		q = 1;
+		q = 0;
 	}
 	putchar('\n');
 	return (0);
