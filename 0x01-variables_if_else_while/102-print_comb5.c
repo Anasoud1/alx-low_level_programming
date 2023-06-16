@@ -32,6 +32,7 @@ int main(void)
 					if (n == 9 && m == 8 && p == 9 && q == 9)
 						break;
 					putchar(',');
+					putchar(' ');
 					q++;
 				}
 				p++;
