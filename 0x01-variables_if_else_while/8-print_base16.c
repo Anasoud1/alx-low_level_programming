@@ -14,7 +14,7 @@ int main(void)
 	while (n + 48 <= 'f')
 	{
 		if (n + 48 <= 57 || n + 48 >= 97)
-			putchar(n);
+			putchar(n + 48);
 		n++;
 	}
 	putchar('\n');
