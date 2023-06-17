@@ -12,40 +12,28 @@
 int main(void)
 {
 	int n = 0;
-	int m = 0;
-	int p = 0;
-	int q = 1;
+	int m;
 
-	while (n <= 9)
+	while (n < 99)
 	{
-		while (m <= 9)
+		m = n;
+		while (m <= 99)
 		{
-			while (p <= 9)
+			if (n != m)
 			{
-				while (q <= 9)
-				{
-					putchar(n + 48);
-					putchar(m + 48);
-					putchar(' ');
-					putchar(p + 48);
-					putchar(q + 48);
-					if (n == 9 && m == 8 && p == 9 && q == 9)
-						break;
-					putchar(',');
-					putchar(' ');
-					q++;
-				}
-				p++;
-				q = 0;
+				putchar((n / 10) + 48);
+				putchar((n % 10) + 48);
+				putchar(' ');
+				putchar((m / 10) + 48);
+				putchar((m % 10) + 48);
+				if (n == 98 && m == 99)
+					break;
+				putchar(',');
+				putchar(' ');
 			}
 			m++;
-			q = m + 1;
-			p = n;
 		}
 		n++;
-		m = 0;
-		p = 0;
-		q = 0;
 	}
 	putchar('\n');
 	return (0);
