@@ -12,9 +12,9 @@ void times_table(void)
 	{
 		for (j = 0; j <= 9; j++)
 		{
+			num = i * j;
 			if (j != 0)
 			{
-				num = i * j;
 				if ((num / 10) != 0)
 					_putchar((num / 10) + 48);
 				else
