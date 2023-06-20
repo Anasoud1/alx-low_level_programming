@@ -11,6 +11,8 @@
 
 int main(void)
 {
-	_putchar("_putchar\n");
+	char c [] ="_putchar\n";
+
+	write(1, c, 9);
 	return (0);
 }
