@@ -11,8 +11,10 @@
 
 int main(void)
 {
+	int i;
 	char c[] = "_putchar\n";
 
-	write(1, c, 9);
+	for (i = 0; i <= 8 ; i++)
+		_putchar(c[i]);
 	return (0);
 }
