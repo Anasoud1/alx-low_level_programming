@@ -1,4 +1,4 @@
-# include "mqin.h"
+# include "main.h"
 /**
  * add - a function that add two number
  * @a: a parametre given to add
