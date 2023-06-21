@@ -18,6 +18,6 @@ int main(void)
 		if ((i % 5) == 0)
 			s = s + i;
 	}
-	printf("%d\n");
+	printf("%d\n", s);
 	return (0);
 }
