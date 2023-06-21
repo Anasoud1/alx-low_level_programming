@@ -32,7 +32,7 @@ void print_to_98(int n)
 				if (i >= 100)
 				{
 					_putchar((i / 100) + 48);
-					_putchar(((i - 100) / 10) + 100);
+					_putchar(((i - 100) / 10) + 48);
 				}
 				else if (i > 9)
 					_putchar((i / 10) + 48);
