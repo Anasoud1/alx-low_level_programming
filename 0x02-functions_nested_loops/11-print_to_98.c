@@ -29,25 +29,24 @@ void print_to_98(int n)
 			for (i = n; i > 0; i--)
 			{
 				_putchar('-');
-				if (i >= 1 && i <= 9)
-					_putchar((i % 10) + 48);
-				else
+				if (i >= 100)
 				{
-					_putchar((i / 10) + 48);
-					_putchar((i % 10) + 48);
+					_putchar((i / 100) + 48);
+					_putchar(((i - 100) / 100) + 100);
 				}
+				else if (i > 9)
+					_putchar((i / 10) + 48);
+				_putchar((i % 10) + 48);
 				_putchar(',');
 				_putchar(' ');
 			}
+			n = 0;
 		}
 		for (i = 0; i < 98; i++)
 		{
-			if (i >= 0 && i <= 9)
-				_putchar((i % 10) + 48);
-			else
-			{	_putchar((i / 10) + 48);
-				_putchar((i % 10) + 48);
-			}
+			if (i > 9)
+				_putchar((i / 10) + 48);
+			_putchar((i % 10) + 48);
 			_putchar(',');
 			_putchar(' ');
 		}
