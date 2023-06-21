@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * print_to_98 - a function to print until to number 98
@@ -9,49 +10,12 @@ void print_to_98(int n)
 	if (n > 98)
 	{
 		for (i = n; i > 98; i--)
-		{
-			if (i >= 100)
-			{	_putchar((i / 100) + 48);
-				_putchar(((i - 100) / 10) + 48);
-			}
-			else
-				_putchar((i / 10) + 48);
-			_putchar((i % 10) + 48);
-			_putchar(',');
-			_putchar(' ');
-		}
+			printf("%d, ", i);
 	}
 	else if (n < 98)
 	{
-		if (n < 0)
-		{
-			n = (-n);
-			for (i = n; i > 0; i--)
-			{
-				_putchar('-');
-				if (i >= 100)
-				{
-					_putchar((i / 100) + 48);
-					_putchar(((i - 100) / 10) + 48);
-				}
-				else if (i > 9)
-					_putchar((i / 10) + 48);
-				_putchar((i % 10) + 48);
-				_putchar(',');
-				_putchar(' ');
-			}
-			n = 0;
-		}
 		for (i = n; i < 98; i++)
-		{
-			if (i > 9)
-				_putchar((i / 10) + 48);
-			_putchar((i % 10) + 48);
-			_putchar(',');
-			_putchar(' ');
-		}
+			printf("%d, ", i);
 	}
-	_putchar('9');
-	_putchar('8');
-	_putchar('\n');
+	printf("98\n");
 }
