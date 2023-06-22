@@ -2,9 +2,8 @@
 
 /**
  * print_diagonal - a function that print a diagonal
- *
  * @n: numnber of \
- *
+ *	should be printed
  */
 
 void print_diagonal(int n)
