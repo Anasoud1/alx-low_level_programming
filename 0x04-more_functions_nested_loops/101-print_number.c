@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * print_number - function that print a number using _putchar
@@ -8,7 +7,7 @@
  */
 void print_number(int n)
 {
-	unsigned int num = n;
+	int num = n;
 
 	if (n < 0)
 	{
