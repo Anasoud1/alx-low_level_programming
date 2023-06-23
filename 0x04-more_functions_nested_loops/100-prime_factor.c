@@ -9,17 +9,19 @@
  */
 int main(void)
 {
-	int i;
+	int i, largest;
 	long int n = 612852475143;
 
 	for (i = 2; i <= n; i++)
 	{
 		if (n % i == 0)
 		{
-			printf("%d ", i);
 			n = n / i;
+			if (i > largest)
+				largest = i;
 		}
 	}
+	printf("%d", largest);
 	printf("\n");
 	return (0);
 }
