@@ -37,8 +37,7 @@ int _atoi(char *s)
 		number = number + ((p[i] - 48) * prc);
 		prc = prc / 10;
 	}
-	if (pos >= neg)
-		return (number);
-	else
-		return (-number);
+	if (neg > pos)
+		number = -number;
+	return (number);
 }
