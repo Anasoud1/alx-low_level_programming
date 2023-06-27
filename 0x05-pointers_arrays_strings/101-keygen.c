@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -18,6 +19,6 @@ int main(void)
 		s += c;
 		putchar(c);
 	}
-	putchar(2772 - sum);
+	putchar(2772 - s);
 	return (0);
 }
