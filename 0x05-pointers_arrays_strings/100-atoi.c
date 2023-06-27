@@ -32,7 +32,7 @@ int _atoi(char *s)
 	len = i;
 	for (i = 1; i < len ; i++)
 		prc = prc * 10;
-	for (i = 1; i < len ; i++)
+	for (i = 0; i < len ; i++)
 	{
 		number = number + ((p[i] - 48) * prc);
 		prc = prc / 10;
