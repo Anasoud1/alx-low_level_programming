@@ -16,8 +16,12 @@ char *cap_string(char *s)
 		for (j = 0; j < sizeof(del); j++)
 		{
 			if (s[i] == del[j])
+			{
+				if (del[j] == '\t')
+					s[i] == ' ';
 				if (s[i + 1] >= 97 && s[i + 1] <= 122)
 					s[i + 1] = s[i + 1] - 32;
+			}
 		}
 	}
 	s[i] = '\0';
