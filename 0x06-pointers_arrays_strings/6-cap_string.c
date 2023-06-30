@@ -14,6 +14,8 @@ char *cap_string(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
+		if (s[0] >= 97 && s[0] <= 122)
+			s[0] = s[0] - 32;
 		for (j = 0; j < 13; j++)
 		{
 			if (s[i] == del[j])
@@ -23,5 +25,5 @@ char *cap_string(char *s)
 			}
 		}
 	}
-	return (s);
+	return (p);
 }
