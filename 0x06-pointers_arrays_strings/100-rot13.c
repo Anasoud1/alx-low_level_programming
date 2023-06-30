@@ -21,6 +21,5 @@ char *rot13(char *s)
 				break;
 			}
 		}
-	s[i] = '\0';
 	return (s);
 }
