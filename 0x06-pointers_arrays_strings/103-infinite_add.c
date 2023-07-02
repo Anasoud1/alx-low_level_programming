@@ -1,12 +1,10 @@
 #include "main.h"
-
 /**
  * infinite_add - function that add two numbers
  * @n1: first string
  * @n2: second string
  * @r: string after add
  * @size_r: size of r
- *
  * Return: r
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
@@ -41,7 +39,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if (d == 1)
 	{
-		r[l + 1] = '\0';
 		if (l + 2 > size_r)
 			return (0);
 		while (l >= 0)
