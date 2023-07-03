@@ -13,6 +13,6 @@ void print_diagsums(int *a, int size)
 	for (i = 0; i < prod; i = i + size + 1)
 		s += a[i];
 	for (j = 0; j < prod - 1; j = j + size - 1)
-		s1 = -= a[j];
+		s1 += a[j];
 	printf("%d, %d\n", s, s1);
 }
