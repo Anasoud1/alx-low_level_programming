@@ -7,12 +7,13 @@
  */
 void print_diagsums(int *a, int size)
 {
-	unsigned int i, j, s = 0, s1 = 0;
-	unsigned int prod = size * size;
+	unsigned int i, s = 0, s1 = 0;
 
-	for (i = 0; i < prod; i = i + size + 1)
+	for (i = 0; i < size; i++)
+	{
 		s += a[i];
-	for (j = 0; j < prod - 1; j = j + size - 1)
-		s1 += a[j];
+		s1 += a[i - size - 1];
+		a = a + size;
+
 	printf("%d, %d\n", s, s1);
 }
