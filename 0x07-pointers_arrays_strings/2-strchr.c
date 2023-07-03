@@ -18,12 +18,8 @@ char *_strchr(char *s, char c)
 		if (s[i] == c)
 		{
 			p = &s[i];
-			break;
+			return (p);
 		}
-		else
-			n = NULL;
 	}
-	if (n == NULL)
-		return (NULL);
-	return (p);
+	return (NULL);
 }
