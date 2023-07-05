@@ -5,6 +5,7 @@
  *
  * Return: 1 if a prime number or 0 if not
  */
+int _sqrt_recursion(int n);
 int is_prime_number(int n)
 {
 	int l;
