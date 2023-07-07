@@ -12,6 +12,7 @@ int _atoi(char *s)
 	int neg = 0;
 	int prc = 1;
 	int number = 0;
+	unsigned int n;
 	int pos = 0;
 	char *p;
 
@@ -39,7 +40,8 @@ int _atoi(char *s)
 	}
 	if (neg > pos)
 		number = -number;
-	return (number);
+	n = number;
+	return (n);
 }
 /**
  * main - entry point
@@ -50,7 +52,7 @@ int _atoi(char *s)
  */
 int main(int argc, char **argv)
 {
-	int mul, n1, n2;
+	unsigned int mul, n1, n2;
 
 	if (argc < 2)
 	{
