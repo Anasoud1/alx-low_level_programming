@@ -9,17 +9,13 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, k, l = 0;
-	char del[] = " \t\n,;.!?\"(){}";
+	unsigned int i, k;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; accept[j] != '\0'; j++)
-			if (s[i] == accept[j])
-				l++;
-		for (k = 0; del[k] != '\0'; k++)
-			if (s[i] == del[k])
-				return (l);
+		for (k = 0; accept[k] != s[i]; k++)
+			if (accept[k] == '\0')
+				return (i);
 	}
-	return (l);
+	return (i);
 }
