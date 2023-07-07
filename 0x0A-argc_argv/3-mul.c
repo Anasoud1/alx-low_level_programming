@@ -2,29 +2,6 @@
 #include "main.h"
 
 /**
- * main - entry point
- * Description: program to pront the number of argument passed
- * @argc: number of parametre
- * @argv: array of string
- * Return: 0 (success)
- */
-int _atoi(char *s);
-int main(int argc, char **argv)
-{
-	int mul, n1, n2;
-
-	if (argc < 2)
-		printf("Error\n");
-	else
-	{
-		n1 = _atoi(argv[1]);
-		n2 = _atoi(argv[2]);
-		mul = n1 * n2;
-		printf("%d\n", mul);
-	}
-	return (0);
-}
-/**
  * _atoi - function that convert a string to an integer
  * @s: string to cheks for number
  * Return: converted integer
@@ -63,4 +40,26 @@ int _atoi(char *s)
 	if (neg > pos)
 		number = -number;
 	return (number);
+}
+/**
+ * main - entry point
+ * Description: program to pront the number of argument passed
+ * @argc: number of parametre
+ * @argv: array of string
+ * Return: 0 (success)
+ */
+int main(int argc, char **argv)
+{
+	int mul, n1, n2;
+
+	if (argc < 2)
+		printf("Error\n");
+	else
+	{
+		n1 = _atoi(argv[1]);
+		n2 = _atoi(argv[2]);
+		mul = n1 * n2;
+		printf("%d\n", mul);
+	}
+	return (0);
 }
