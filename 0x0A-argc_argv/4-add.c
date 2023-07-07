@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (!_isdigit(*argv[i]))
+			if (!_isdigit(*argv[i]) && *argv[i] != '-')
 			{
 				printf("Error\n");
 				return (1);
