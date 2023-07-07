@@ -63,7 +63,7 @@ int _atoi(char *s)
 int main(int argc, char **argv)
 {
 	int i, s = 0;
-	
+
 	if (argc == 1)
 		printf("0\n");
 	else
