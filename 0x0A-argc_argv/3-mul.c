@@ -54,17 +54,17 @@ int main(int argc, char **argv)
 {
 	unsigned int mul, n1, n2;
 
-	if (argc < 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	else
+	if (argc == 3)
 	{
 		n1 = _atoi(argv[1]);
 		n2 = _atoi(argv[2]);
 		mul = n1 * n2;
 		printf("%d\n", mul);
 		return (0);
+	}
+	else
+	{
+		printf("Error\n");
+		return (1);
 	}
 }
