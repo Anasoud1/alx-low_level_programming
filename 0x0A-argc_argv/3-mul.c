@@ -53,13 +53,16 @@ int main(int argc, char **argv)
 	int mul, n1, n2;
 
 	if (argc < 2)
+	{
 		printf("Error\n");
+		return (1);
+	}
 	else
 	{
 		n1 = _atoi(argv[1]);
 		n2 = _atoi(argv[2]);
 		mul = n1 * n2;
 		printf("%d\n", mul);
+		return (0);
 	}
-	return (0);
 }
