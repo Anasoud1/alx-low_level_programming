@@ -10,7 +10,8 @@
 */
 int main(int argc, char *argv[])
 {
-	int i, n;
+	unsigned int i, n;
+	int num;
 
 	if (argc != 2)
 	{
@@ -19,11 +20,12 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		n = atoi(argv[1]);
-		if (n < 0)
+		num = atoi(argv[1]);
+		if (num < 0)
 			printf("0\n");
 		else
 		{
+			n = num;
 			i = 0;
 			while (n >= 25)
 			{
