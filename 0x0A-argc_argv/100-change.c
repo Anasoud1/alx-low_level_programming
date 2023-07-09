@@ -20,28 +20,33 @@ int main(int argc, char *argv[])
 	else
 	{
 		n = atoi(argv[1]);
-		i = 0;
-		while (n >= 25)
+		if (n < 0)
+			printf("0\n");
+		else
 		{
-			n -= 25;
-			i++;
+			i = 0;
+			while (n >= 25)
+			{
+				n -= 25;
+				i++;
+			}
+			while (n >= 10)
+			{
+				n -= 10;
+				i++;
+			}
+			while (n >= 5)
+			{
+				n -= 5;
+				i++;
+			}
+			while (n >= 1)
+			{
+				n -= 1;
+				i++;
+			}
+			printf("%d\n", i);
 		}
-		while (n >= 10)
-		{
-			n -= 10;
-			i++;
-		}
-		while (n >= 5)
-		{
-			n -= 5;
-			i++;
-		}
-		while (n >= 1)
-		{
-			n -= 1;
-			i++;
-		}
-		printf("%d\n", i);
 	}
 	return (0);
 }
