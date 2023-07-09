@@ -10,8 +10,8 @@
 */
 int main(int argc, char *argv[])
 {
-	unsigned int i, n;
-	int num;
+	int i, money, res = 0;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
@@ -20,34 +20,22 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		num = atoi(argv[1]);
-		if (num < 0)
+		money = atoi(argv[1]);
+		if (money < 0)
 			printf("0\n");
 		else
 		{
-			n = num;
-			i = 0;
-			while (n >= 25)
+			for (i = 0; i < 5; i++)
 			{
-				n -= 25;
-				i++;
+				if (money >= coins[i])
+				{
+					res += money / coins[i];
+					money = money % coins[i];
+					if (money == 0)
+						break;
+				}
 			}
-			while (n >= 10)
-			{
-				n -= 10;
-				i++;
-			}
-			while (n >= 5)
-			{
-				n -= 5;
-				i++;
-			}
-			while (n >= 1)
-			{
-				n -= 1;
-				i++;
-			}
-			printf("%d\n", i);
+			printf("%d\n", res);
 		}
 	}
 	return (0);
