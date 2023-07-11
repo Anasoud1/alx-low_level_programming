@@ -20,7 +20,7 @@ char **strtow(char *str)
 		while (str[i] != ' ')
 			i++;
 	}
-	s = (char **)malloc(sizeof(*s) * (h + 1));
+	s = (char **)malloc(sizeof(char *) * h + 1);
 	s[h] = NULL;
 	if (s == NULL)
 		return (NULL);
@@ -35,7 +35,7 @@ char **strtow(char *str)
 			l++;
 			j++;
 		}
-		s[i] = (char *)malloc(sizeof(char) * (l + 1));
+		s[i] = (char *)malloc(sizeof(char) * l + 1);
 		if (s[i] == NULL)
 		{
 			while (i--)
