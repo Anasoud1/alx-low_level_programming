@@ -81,6 +81,6 @@ char **strtow(char *str)
 		m++;
 		s[i][k] = '\0';
 	}
-	s[h] = NULL;
+	free(p);
 	return (s);
 }
