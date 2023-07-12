@@ -6,16 +6,13 @@
  */
 char *new_string(char *str)
 {
-	int i, w = 0, k = 0, c = 0;
+	int i, w = 0, k = 0, c = 0, h = 0;
 	char *p;
 
-	for (i = 0; str[i] != '\0' ; i++)
-		if (str[i] != ' ')
-			c++;
-	if (c == 0)
-		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
+		if (str[i] != ' ')
+			h++;
 		for (i = 0; str[i] != '\0'; i++)
 			while (str[i] != ' ' && str[i] != '\0')
 			{
@@ -23,7 +20,9 @@ char *new_string(char *str)
 				i++;
 			}
 	}
-	p = (char *)malloc(sizeof(char) * w + 1);
+	if (w == 0)
+		return (NULL);
+	p = (char *)malloc(sizeof(char) * (w + h));
 	if (p == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
