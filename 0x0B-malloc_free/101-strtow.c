@@ -13,12 +13,11 @@ char *new_string(char *str)
 	{
 		if (str[i] != ' ')
 			h++;
-		for (i = 0; str[i] != '\0'; i++)
-			while (str[i] != ' ' && str[i] != '\0')
-			{
-				w++;
-				i++;
-			}
+		while (str[i] != ' ' && str[i] != '\0')
+		{
+			w++;
+			i++;
+		}
 	}
 	if (w == 0)
 		return (NULL);
