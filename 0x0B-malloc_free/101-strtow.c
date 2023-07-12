@@ -6,7 +6,7 @@
  */
 char *new_string(char *str)
 {
-	int i, w = 0, k = 0, c = 0, h = 0;
+	int i, w = 0, k = 0, h = 0;
 	char *p;
 
 	for (i = 0; str[i] != '\0'; i++)
