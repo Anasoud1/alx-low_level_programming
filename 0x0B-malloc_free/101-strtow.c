@@ -1,40 +1,38 @@
 #include "main.h"
 /**
- * new_string - function that creat new string
- * @str: string to change
- * Return: pointer
+ * word_len - locate the index in the end of the first word
+ * @str: string to check
+ * Return: index
  */
-char *new_string(char *str)
+char word_len(char *str)
 {
-	int i, w = 0, k = 0, h = 0;
-	char *p;
+	int i, len = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0' && str[i] != ' '; i++)
+		len++;
+	return (len);
+}
+/**
+ * count_word - count the number of a string
+ * @s: string
+ * Return: the number of world in the string
+ */
+int count_word(char *s)
+{
+	int i, w = 0, len = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
+		len++;
+	for (i = 0; i < len; i++)
 	{
-		if (str[i] != ' ')
-			h++;
-		while (str[i] != ' ' && str[i] != '\0')
+		if (s[i] != ' ')
 		{
 			w++;
-			i++;
+			i += word_len(s + i);
 		}
 	}
-	if (w == 0)
-		return (NULL);
-	p = (char *)malloc(sizeof(char) * (w + h));
-	if (p == NULL)
-		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i] != ' ')
-			p[k++] = str[i];
-		else if (str[i] == ' ' && str[i - 1] != ' ' && i != 0)
-			p[k++] = str[i];
-	}
-	p[k] = '\0';
-	return (p);
+	return (w);
 }
-
 /**
  * strtow - function  that splits a string into words
  * @str: string
@@ -43,32 +41,21 @@ char *new_string(char *str)
  */
 char **strtow(char *str)
 {
-	int i, h = 0, w = 0, k = 0, m = 0, j = 0;
-	char **s, *p;
+	int i, h, k, len, j = 0;
+	char **s;
 
-	p = new_string(str);
-	if (str == NULL || *str == '\0' || p == NULL)
+	h = count_word(str);
+	if (str == NULL || *str == '\0' || h == 0)
 		return (NULL);
-	for (i = 0; p[i] != '\0' ; i++)
-	{
-		if (p[i] != ' ')
-			h++;
-		while (p[i] != ' ' && p[i] != '\0')
-			i++;
-	}
-	s = (char **)malloc(sizeof(char *) * h);
+	s = (char **)malloc(sizeof(char *) * (h + 1));
 	if (s == NULL)
 		return (NULL);
 	for (i = 0; i < h; i++)
 	{
-		w = 0;
-		while (p[j] != ' ' && p[j] != '\0')
-		{
-			w++;
+		while (str[j] == ' ')
 			j++;
-		}
-		j++;
-		s[i] = (char *)malloc(sizeof(char) * w);
+		len = word_len(str + j);
+		s[i] = (char *)malloc(sizeof(char) * len + 1);
 		if (s[i] == NULL)
 		{
 			while (i--)
@@ -76,11 +63,10 @@ char **strtow(char *str)
 			free(s);
 			return (NULL);
 		}
-		for (k = 0; k < w; k++)
-			s[i][k] = p[m++];
-		m++;
+		for (k = 0; k < len; k++)
+			s[i][k] = str[j++];
 		s[i][k] = '\0';
 	}
-	free(p);
+	s[h] = NULL;
 	return (s);
 }
