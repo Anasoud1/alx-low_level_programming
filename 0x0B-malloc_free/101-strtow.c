@@ -56,7 +56,7 @@ char **strtow(char *str)
 		while (p[i] != ' ' && p[i] != '\0')
 			i++;
 	}
-	s = (char **)malloc(sizeof(char *) * h + 1);
+	s = (char **)malloc(sizeof(char *) * h);
 	if (s == NULL)
 		return (NULL);
 	for (i = 0; i < h; i++)
@@ -68,7 +68,7 @@ char **strtow(char *str)
 			j++;
 		}
 		j++;
-		s[i] = (char *)malloc(sizeof(char) * w + 1);
+		s[i] = (char *)malloc(sizeof(char) * w);
 		if (s[i] == NULL)
 		{
 			while (i--)
