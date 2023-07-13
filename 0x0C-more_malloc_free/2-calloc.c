@@ -8,10 +8,10 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *s;
+	char *s;
 	unsigned int i;
 
-	s = malloc(size * nmemb);
+	s = (char *)malloc(sizeof(char) * size * nmemb);
 	if (nmemb <= 0 || size <= 0 || s == 0)
 		exit(1);
 	for (i = 0; i < nmemb * size; i++)
