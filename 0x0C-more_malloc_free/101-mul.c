@@ -17,10 +17,20 @@ int check_number(char *s)
 			return (0);
 	return (1);
 }
+/**
+ * error - function print error
+*/
+void error(void)
+{
+	printf("Error\n");
+	exit(98);
+}
 
 /**
  * main - entry point
- * Description: program that multiply two string
+ * Description:iprogram that multiply two string
+ * @ac: size of array
+ * @av: array of string
  * Return: 0 (succes)
  */
 int main(int ac, char *av[])
@@ -30,10 +40,7 @@ int main(int ac, char *av[])
 
 	s1 = av[1], s2 = av[2];
 	if (ac != 3 || !check_number(s1) || !check_number(s2))
-	{
-		printf("Error\n");
-		exit(98);
-	}
+	error();
 	len1 = strlen(s1);
 	len2 = strlen(s2);
 	len = len1 + len2;
@@ -58,11 +65,6 @@ int main(int ac, char *av[])
 	}
 	for (i = 0; i < len; i++)
 	{
-		if (i == 0)
-		{
-			if (res[i] == 0)
-				continue;
-		}
 		_putchar(res[i] + '0');
 	}
 	_putchar('\n');
