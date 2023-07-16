@@ -35,7 +35,7 @@ void error(void)
  */
 int main(int ac, char *av[])
 {
-	int i, len1, len2, len, carry, num1, num2, *res;
+	int i, len1, len2, len, carry, num1, num2, *res, a;
 	char *s1, *s2;
 
 	s1 = av[1], s2 = av[2];
@@ -65,8 +65,14 @@ int main(int ac, char *av[])
 	}
 	for (i = 0; i < len; i++)
 	{
-		_putchar(res[i] + '0');
+		if (res[i])
+		{
+			a = 1;
+			_putchar(res[i] + '0');
+		}
 	}
+	if (!a)
+		_putchar(res[i] + '0');
 	_putchar('\n');
 	free(res);
 	return (0);
