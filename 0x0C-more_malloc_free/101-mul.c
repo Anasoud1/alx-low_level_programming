@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
+#include "main.h"
 /**
  * check_number - function that cheks if the string is a number
  * @s: string to check
