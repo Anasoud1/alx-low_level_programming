@@ -1,5 +1,5 @@
 #include "dog.h"
-
+#include <string.h>
 /**
  * new_dog - function that creates a new dog
  * @name: first member
@@ -13,10 +13,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_t dog;
 
 	my_dog = &dog;
-	if (my_dog == 0 || !name || age < 0 || !owner )
+	if (my_dog == 0)
 		return (NULL);
-	my_dog->name = name;
+	my_dog->name = strcpy(my_dog->name, name);
 	my_dog->age = age;
-	my_dog->owner = owner;
+	my_dog->owner = strcpy(my_dog->owner, owner);
 	return (my_dog);
 }
