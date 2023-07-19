@@ -10,6 +10,7 @@
 int main(int ac, char *av[])
 {
 	int num1, num2, res;
+	int (*p)(int, int);
 
 	if (ac != 4)
 	{
@@ -23,12 +24,13 @@ int main(int ac, char *av[])
 		printf("Error\n");
 		exit(100);
 	}
-	if (!get_op_func(av[2]))
+	p = get_op_func(av[2]);
+	if (!p)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	res = get_op_func(av[2])(num1, num2);
+	res = p(num1, num2);
 	printf("%d\n", res);
 	return (0);
 }
