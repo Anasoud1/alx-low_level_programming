@@ -19,6 +19,5 @@ int (*get_op_func(char *s))(int, int)
 	for (i = 0; i < 5; i++)
 		if (*s == *(ops[i].op))
 			return (ops[i].f);
-	printf("Error\n");
-	exit(99);
+	return (NULL);
 }
