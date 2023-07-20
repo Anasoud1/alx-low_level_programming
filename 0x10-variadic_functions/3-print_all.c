@@ -7,14 +7,13 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, len;
+	int i = 0;
 	char *str;
 
-	len = strlen(format);
 	va_start(args, format);
 	if (format)
 	{
-		while (i < len)
+		while (format[i])
 		{
 			switch (format[i])
 			{
