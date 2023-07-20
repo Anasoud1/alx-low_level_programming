@@ -8,7 +8,7 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i = 0, len, j;
-	char p[] = {'i', 'c', 'f', 's'};
+	char *str, p[] = {'i', 'c', 'f', 's'};
 
 	len = strlen(format);
 	va_start(args, format);
@@ -28,7 +28,8 @@ void print_all(const char * const format, ...)
 					printf("%f", va_arg(args, double));
 					break;
 				case 's':
-					printf("%s", va_arg(args, char*) ? va_arg(args, char*) : "(nil)");
+					str = va_arg(args, char*);
+					printf("%s", str ? str : "(nil)");
 					break;
 			}
 			j = 0;
