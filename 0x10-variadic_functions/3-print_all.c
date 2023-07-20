@@ -35,7 +35,7 @@ void print_all(const char * const format, ...)
 					i++;
 					continue;
 			}
-			if (i != len - 1 && format[i] == p[j])
+			if (i != len - 1)
 				printf(", ");
 			i++;
 		}
