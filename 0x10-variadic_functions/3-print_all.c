@@ -7,8 +7,8 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, len, j;
-	char *str, p[] = {'i', 'c', 'f', 's'};
+	int i = 0, len;
+	char *str;
 
 	len = strlen(format);
 	va_start(args, format);
@@ -31,14 +31,12 @@ void print_all(const char * const format, ...)
 					str = va_arg(args, char*);
 					printf("%s", str ? str : "(nil)");
 					break;
+				default:
+					i++;
+					continue;
 			}
-			j = 0;
-			while (j < 4)
-			{
-				if (i != len - 1 && format[i] == p[j])
+			if (i != len - 1 && format[i] == p[j])
 				printf(", ");
-				j++;
-			}
 			i++;
 		}
 	}
