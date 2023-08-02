@@ -43,7 +43,7 @@ size_t free_listint_safe(listint_t **h)
 	{
 		if (tmp == last)
 		{
-			(h)->next = NULL;
+			(*h)->next = NULL;
 			break;
 		}
 		count++;
