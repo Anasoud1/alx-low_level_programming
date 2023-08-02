@@ -37,7 +37,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *last, *tmp = *h;
 
 	last = last_node(*h);
-	if (!h)
+	if (!h || !(*h))
 		return (0);
 	while (tmp != last)
 	{
@@ -51,5 +51,5 @@ size_t free_listint_safe(listint_t **h)
 	free(tmp);
 	tmp = NULL;
 	*h = NULL;
-	return (count++);
+	return (++count);
 }
