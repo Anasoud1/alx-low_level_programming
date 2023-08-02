@@ -42,7 +42,10 @@ size_t free_listint_safe(listint_t **h)
 	while (tmp != last)
 	{
 		if (tmp == last)
+		{
+			(h)->next = NULL;
 			break;
+		}
 		count++;
 		*h = (*h)->next;
 		free(tmp);
