@@ -9,16 +9,13 @@ size_t print_listint_safe(const listint_t *head)
 	int i = 0, j = 0, count = 0;
 	const listint_t **array;
 
-	array = malloc(sizeof(listint_t *) + 1);
+	array = malloc(50 * sizeof(listint_t *) + 1);
 	if (!array || !head)
 		exit(98);
 	while (head)
 	{
 		for (i = 0; i < count; i++)
 		{
-			array = realloc(array, count * (sizeof(listint_t *) + 1));
-			if (!array)
-				exit(98);
 			if (head == array[i])
 			{
 				printf("-> [%p] %d\n", head, head->n);
