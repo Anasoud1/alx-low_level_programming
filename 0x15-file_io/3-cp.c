@@ -13,7 +13,7 @@
  */
 int main(int ac, char *av[])
 {
-	int fo1, fo2, fr, fc1, fc2;
+	ssize_t fo1, fo2, fr, fc1, fc2;
 	char buffer[1024];
 
 	if (ac != 3)
