@@ -13,7 +13,8 @@
  */
 int main(int ac, char *av[])
 {
-	ssize_t fo1, fo2, fr = 1, fw, fc1, fc2;
+	int fo1, fo2, fc1, fc2;
+	ssize_t fr = 1;
 	char buffer[1024];
 
 	if (ac != 3)
@@ -36,8 +37,8 @@ int main(int ac, char *av[])
 		}
 		if (fr == 0)
 			break;
-		fw = write(fo2, buffer, fr);
-		if (fw == -1)
+		fr = write(fo2, buffer, fr);
+		if (fr == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 			close(fo1);
@@ -48,9 +49,9 @@ int main(int ac, char *av[])
 	fc1 = close(fo1);
 	fc2 = close(fo2);
 	if (fc1 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fc1), exit(100);
 	if (fc2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fc1), exit(100);
 	return (0);
 }
 
