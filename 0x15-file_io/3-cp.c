@@ -14,7 +14,7 @@
 int main(int ac, char *av[])
 {
 	int fo1, fo2, fc1, fc2;
-	ssize_t fr = 1;
+	ssize_t fr;
 	char buffer[1024];
 
 	if (ac != 3)
@@ -24,10 +24,10 @@ int main(int ac, char *av[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 	fo2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fo2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]), exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	while ((fr = read(fo1, buffer, 1024)) > 0)
 		if (write(fo2, buffer, fr) != fr)
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]), exit(99);	
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	if (fr == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
