@@ -17,11 +17,7 @@ int main(int ac, char *av[])
 	char buffer[1024];
 
 	if (ac != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-	umask(002);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 	fo1 = open(av[1], O_RDONLY);
 	fo2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	while (fr)
@@ -34,6 +30,8 @@ int main(int ac, char *av[])
 			close(fo2);
 			exit(98);
 		}
+		if (fr == 0)
+			break;
 		fw = write(fo2, buffer, fr);
 		if (fo2 == -1 || fw == -1)
 		{
@@ -46,10 +44,7 @@ int main(int ac, char *av[])
 	fc1 = close(fo1);
 	fc2 = close(fo2);
 	if (fc1 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1), exit(100);
 	if (fc2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1), exit(100);
 	return (0);
