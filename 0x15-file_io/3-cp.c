@@ -13,7 +13,7 @@
  */
 int main(int ac, char *av[])
 {
-	ssize_t fo1, fo2, fr, fc1, fc2;
+	ssize_t fo1, fo2, fr = 1, fw, fc1, fc2;
 	char buffer[1024];
 
 	if (ac != 3)
@@ -24,18 +24,24 @@ int main(int ac, char *av[])
 	umask(002);
 	fo1 = open(av[1], O_RDONLY);
 	fo2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((fr = read(fo1, buffer, 1024)) > 0)
-		if (write(fo2, buffer, fr) != fr)
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]), exit(99);
-	if (fo1 == -1 || fr == -1)
+	while (fr)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
-	if (fo2 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
+		fr = read(fo1, buffer, 1024);
+		if (fo1 == -1 || fr == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+			close(fo1);
+			close(fo2);
+			exit(98);
+		}
+		fw = write(fo2, buffer, fr);
+		if (fo2 == -1 || fw == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
+			close(fo1);
+			close(fo2);
+			exit(99);
+		}
 	}
 	fc1 = close(fo1);
 	fc2 = close(fo2);
