@@ -41,11 +41,11 @@ int main(int ac, char *av[])
 	fc2 = close(fo2);
 	if (fc1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fc1);
+		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1);
 		exit(100);
 	}
 	if (fc2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fc1), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close %ld\n", fc1), exit(100);
 	return (0);
 }
 
