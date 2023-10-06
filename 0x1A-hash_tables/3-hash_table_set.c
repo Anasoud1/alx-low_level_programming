@@ -28,15 +28,24 @@ int check_key(hash_node_t *current, const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int i;
-	hash_node_t *tmp;
+	hash_node_t *tmp, *current;
 
 	if (strcmp(key, "") == 0 || !ht || !key || !value)
 		return (0);
 	i = key_index((unsigned char *)key, ht->size);
-	if (check_key(ht->array[i], key, value) == 1)
-		return (1);
-	else if (!check_key(ht->array[i], key, value))
-		return (0);
+	current = ht->array[i];
+	while (current)
+	{
+		if (strcmp(current->key, key) == 0)
+		{
+			free(current->value);
+			current->value = strdup(value);
+			if (!current->value)
+				return (0);
+			return (1);
+		}
+		current = current->next;
+	}
 	tmp = malloc(sizeof(hash_node_t));
 	if (!tmp)
 		return (0);
