@@ -1,21 +1,5 @@
 #include "hash_tables.h"
 
-int check_key(hash_node_t *current, const char *key, const char *value)
-{
-	while (current)
-	{
-		if (strcmp(current->key, key) == 0)
-		{
-			free(current->value);
-			current->value = strdup(value);
-			if (!current->value)
-				return (0);
-			return (1);
-		}
-		current = current->next;
-	}
-	return (2);
-}
 /**
  * hash_table_set - function that adds an element to the hash table
  * @ht: hash table
