@@ -52,13 +52,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(tmp->key);
 		return (0);
 	}
-	tmp->next = NULL;
-	if (ht->array[i] == NULL)
-		ht->array[i] = tmp;
-	else
-	{
-		tmp->next = ht->array[i];
-		ht->array[i] = tmp;
-	}
+	tmp->next = ht->array[i];
+	ht->array[i] = tmp;
 	return (1);
 }
