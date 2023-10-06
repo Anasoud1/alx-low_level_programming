@@ -12,7 +12,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int i;
-	hash_node_t *tmp;
+	hash_node_t *tmp, *current;
 
 	if (strcmp(key, "") == 0 || !ht || !key || !value)
 		return (0);
@@ -27,6 +27,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[i] = tmp;
 	else
 	{
+		current = ht->array[i];
+		while(current->next)
+		{
+			if (strcmp(current->next->key, key) == 0)
+			{
+				tmp->next = current->next->next;
+				free(current->next);
+				current->next = tmp;
+				return (1);
+			}
+			current = current->next;
+		}
 		tmp->next = ht->array[i];
 		ht->array[i] = tmp;
 	}
