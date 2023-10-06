@@ -11,6 +11,8 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i, j = 0, k = 0;
 
+	if (!ht)
+		return;
 	for (i = 0; i < ht->size; i++)
 		if (ht->array[i])
 			j++;
